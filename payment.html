@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Sotib Olish - 2000 Soat</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+        }
+        
+        .price-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .price-amount {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .benefits {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .benefits li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .benefits li:before {
+            content: "✅ ";
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        
+        .card-info {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #4CAF50;
+        }
+        
+        .card-number {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .warning-box {
+            background: rgba(255,193,7,0.2);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .timer {
+            font-size: 36px;
+            text-align: center;
+            font-weight: bold;
+            color: #ff5252;
+            margin: 20px 0;
+            font-family: monospace;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .instructions {
+            background: rgba(33,150,243,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .instruction-step {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .instruction-step:before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            background: #2196F3;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        
+        ol {
+            counter-reset: step;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💎 Premium Sotib Olish</h1>
+            <div class="subtitle">Butun umr premium obuna - Bir martalik to'lov</div>
+        </div>
+        
+        <div class="price-card">
+            <div style="text-align: center;">
+                <div style="font-size: 18px; color: rgba(255,255,255,0.7);">Premium narxi:</div>
+                <div class="price-amount" id="priceAmount">99,000 so'm</div>
+                <div style="color: rgba(255,255,255,0.7);">+ butun umr foydalanish</div>
+            </div>
+            
+            <ul class="benefits">
+                <li>Cheksiz kirish 2000+ soatlik kontentga</li>
+                <li>Barcha maqsadlar ochiladi</li>
+                <li>Yangi kontent doimiy qo'shiladi</li>
+                <li>Shaxsiy progress monitoring</li>
+                <li>Qo'llab-quvvat chat</li>
+                <li>Hech qanday cheklovlar yo'q</li>
+            </ul>
+        </div>
+        
+        <div class="card-info">
+            <div>💳 To'lov qilish uchun karta raqami:</div>
+            <div class="card-number" id="cardNumber">8600 **** **** 1234</div>
+            <div style="color: rgba(255,255,255,0.7); font-size: 14px;">30 daqiqa ichida to'lov qiling</div>
+        </div>
+        
+        <div class="timer" id="timer">30:00</div>
+        
+        <div class="warning-box">
+            ⚠️ <b>Ogohlantirish:</b><br>
+            Hozircha faqat karta orqali to'lov mavjud!<br>
+            Click, Payme, Uzum Bank, Oson to'lov tizimlari tez orada qo'shiladi.
+        </div>
+        
+        <div class="instructions">
+            <b>📋 To'lov qilish tartibi:</b>
+            <ol>
+                <li class="instruction-step">Yuqoridagi karta raqamiga 99,000 so'm o'tkazing</li>
+                <li class="instruction-step">To'lov chekini (screenshot) saqlab qo'ying</li>
+                <li class="instruction-step">"To'lov qildim" tugmasini bosing</li>
+                <li class="instruction-step">Chekni rasm sifatida botga yuboring (@soat2000_bot)</li>
+                <li class="instruction-step">Admin 30 daqiqa ichida tasdiqlaydi</li>
+            </ol>
+        </div>
+        
+        <button class="btn" onclick="paymentDone()">
+            💳 To'lov qildim
+        </button>
+        
+        <button class="btn btn-secondary" onclick="goBack()">
+            🔙 Orqaga
+        </button>
+        
+        <div style="text-align: center; margin-top: 30px; color: rgba(255,255,255,0.5); font-size: 12px;">
+            To'lovni amalga oshirgandan so'ng, chekni @soat2000_bot ga yuborishingiz shart!<br>
+            Aks holda premium aktivlashtirilmaydi.
+        </div>
+    </div>
+    
+    <script>
+        // Telegram WebApp
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        
+        // URL dan user_id ni olish
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('user_id');
+        
+        // Timer sozlash (30 daqiqa)
+        let timeLeft = 30 * 60; // 30 daqiqa
+        const timerElement = document.getElementById('timer');
+        
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                timerElement.textContent = "Vaqt tugadi!";
+                timerElement.style.color = "#ff5252";
+                alert("To'lov vaqti tugadi! Yangi to'lov uchun qayta urinib ko'ring.");
+            }
+        }, 1000);
+        
+        // To'lov tugmasi
+        function paymentDone() {
+            if (!userId) {
+                alert("Xato: User ID topilmadi!");
+                return;
+            }
+            
+            // Botga to'lov haqida xabar yuborish
+            tg.sendData(JSON.stringify({
+                action: "payment_done",
+                user_id: userId,
+                amount: 99000,
+                timestamp: new Date().toISOString()
+            }));
+            
+            alert("✅ To'lov qilganingiz uchun rahmat!\n\nEndi to'lov chekini (screenshot) @soat2000_bot ga yuboring.\nAdmin tasdiqlagach, premium aktiv bo'ladi.");
+            
+            // Mini App ni yopish
+            setTimeout(() => {
+                tg.close();
+            }, 3000);
+        }
+        
+        // Orqaga qaytish
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                tg.close();
+            }
+        }
+        
+        // Sahifa yuklanganda
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!userId) {
+                alert("Xato: User ID topilmadi! Bot orqali kirish kerak.");
+                tg.close();
+            }
+        });
+    </script>
+</body>
+</html>

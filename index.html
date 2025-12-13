@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2000 Soat - Kasbiy Rivojlanish</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        /* ... (oldingi CSS kodlari o'zgarishsiz) ... */
+        
+        .user-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .user-info {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .premium-badge {
+            background: gold;
+            color: black;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .trial-badge {
+            background: #FF9800;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User Badge -->
+        <div class="user-badge" id="userBadge">
+            <div class="user-info" id="userName">Yuklanmoqda...</div>
+            <div class="user-info" id="userGoal">Maqsad: Yuklanmoqda...</div>
+            <div class="user-info" id="userHours">Kunlik: Yuklanmoqda...</div>
+            <div id="userStatus"></div>
+        </div>
+        
+        <!-- Progress Card -->
+        <div class="progress-card">
+            <!-- ... (oldingi progress kodi) ... -->
+        </div>
+        
+        <!-- ... (qolgan HTML) ... -->
+    </div>
+    
+    <script src="bot.js"></script>
+</body>
+</html>
